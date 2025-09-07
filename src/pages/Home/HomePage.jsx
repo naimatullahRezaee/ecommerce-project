@@ -7,7 +7,7 @@ const HomePage = ({ cart }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("api/products").then((response) => {
+    axios.get("/api/products").then((response) => {
       setProducts(response.data);
     });
   }, []);

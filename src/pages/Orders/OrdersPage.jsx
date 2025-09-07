@@ -1,12 +1,11 @@
 import "./OrdersPage.css";
 import Header from "../../components/Header";
 
-const OrdersPage = () => {
+function OrdersPage() {
   return (
     <>
       <title>Orders Page</title>
       <Header />
-
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
 
@@ -143,6 +142,6 @@ const OrdersPage = () => {
       </div>
     </>
   );
-};
+}
 
 export default OrdersPage;

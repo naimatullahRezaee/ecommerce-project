@@ -1,10 +1,10 @@
 import Header from "../../components/Header";
 import "./TrackingPage.css";
-const TrackingPage = () => {
+const TrackingPage = ({ cart }) => {
   return (
     <>
       <title>Tracking Page</title>
-      <Header />
+      <Header cart={cart} />
       <div className="tracking-page">
         <div className="order-tracking">
           <a className="back-to-orders-link link-primary" href="orders">

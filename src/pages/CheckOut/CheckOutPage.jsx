@@ -2,11 +2,11 @@ import Header from "../../components/Header";
 import "./CheckOutPage.css";
 import "./CheckoutHeader.css";
 
-const CheckOutPage = () => {
+const CheckOutPage = ({ cart }) => {
   return (
     <>
       <title> CheckOut </title>
-      <Header />
+      <Header cart={cart} />
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
