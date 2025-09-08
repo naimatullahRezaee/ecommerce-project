@@ -22,7 +22,7 @@ export function OrderSummary({ cart, deliveryOptions, loadCart }) {
           return (
             <div key={cartItem.productId} className="cart-item-container">
               <div className="delivery-date">
-                Delivery date:
+                Delivery date:{" "}
                 {dayjs(selectedDeliveryOption.estimatedDeliveryTimeMs).format(
                   "dddd, MMMM D"
                 )}
@@ -39,6 +39,7 @@ export function OrderSummary({ cart, deliveryOptions, loadCart }) {
                   <div className="product-quantity">
                     <span>
                       Quantity:{" "}
+                      <input type="text" className="quantity-textbox" />
                       <span className="quantity-label">
                         {cartItem.quantity}
                       </span>
