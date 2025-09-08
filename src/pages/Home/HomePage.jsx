@@ -1,9 +1,9 @@
-import Header from "../../components/Header";
+import { Header } from "../../components/Header";
 import "./HomePage.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ProductsGrid } from "./ProductsGrid";
-const HomePage = ({ cart }) => {
+const HomePage = ({ cart, fetchCartData }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const HomePage = ({ cart }) => {
       <Header cart={cart} />
 
       <div className="home-page">
-        <ProductsGrid products={products} />
+        <ProductsGrid products={products} fetchCartData={fetchCartData} />
       </div>
     </>
   );

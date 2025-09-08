@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import { Header } from "../../components/Header";
 import "./CheckOutPage.css";
 import "./CheckoutHeader.css";
 import axios from "axios";
