@@ -4,6 +4,7 @@ import { formatMoney } from "../../utils/money";
 
 export function Product({ product, loadCart }) {
   const [quantity, setQuantity] = useState(1);
+  const [showAddedMessage, setShowAddedMessage] = useState(false);
 
   const addToCart = async () => {
     await axios.post("/api/cart-items", {
@@ -11,6 +12,12 @@ export function Product({ product, loadCart }) {
       quantity,
     });
     await loadCart();
+
+    setShowAddedMessage(true);
+
+    setTimeout(() => {
+      setShowAddedMessage(false);
+    }, 2000);
   };
 
   const selectQuantity = (event) => {
@@ -19,13 +26,9 @@ export function Product({ product, loadCart }) {
   };
 
   return (
-    <div className="product-container" data-testid="product-container">
+    <div className="product-container">
       <div className="product-image-container">
-        <img
-          className="product-image"
-          data-testid="product-image"
-          src={product.image}
-        />
+        <img className="product-image" src={product.image} />
       </div>
 
       <div className="product-name limit-text-to-2-lines">{product.name}</div>
@@ -33,7 +36,6 @@ export function Product({ product, loadCart }) {
       <div className="product-rating-container">
         <img
           className="product-rating-stars"
-          data-testid="product-rating-stars-image"
           src={`images/ratings/rating-${product.rating.stars * 10}.png`}
         />
         <div className="product-rating-count link-primary">
@@ -60,16 +62,17 @@ export function Product({ product, loadCart }) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart">
+      <div
+        className="added-to-cart"
+        style={{
+          opacity: showAddedMessage ? 1 : 0,
+        }}
+      >
         <img src="images/icons/checkmark.png" />
         Added
       </div>
 
-      <button
-        className="add-to-cart-button button-primary"
-        data-testid="add-to-cart-button"
-        onClick={addToCart}
-      >
+      <button className="add-to-cart-button button-primary" onClick={addToCart}>
         Add to Cart
       </button>
     </div>
