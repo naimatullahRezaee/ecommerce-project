@@ -10,9 +10,11 @@ import TrackingPage from "./pages/Tracking/TrackingPage";
 function App() {
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    axios.get("/api/cart-items?expand=product").then((response) => {
+    const getCartItems = async () => {
+      const response = axios.get("/api/cart-items?expand=product");
       setCart(response.data);
-    });
+    };
+    getCartItems();
   }, []);
   return (
     <>
